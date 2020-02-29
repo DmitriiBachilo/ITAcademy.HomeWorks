@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hw_01_assets", "hw_01_assets", "{2AFE32E6-B0C4-4EE1-8714-6A9A02314065}"
 	ProjectSection(SolutionItems) = preProject
 		hw_01_assets\hw_01.png = hw_01_assets\hw_01.png
+		hw_01_assets\hw_01.txt = hw_01_assets\hw_01.txt
 	EndProjectSection
 EndProject
 Global
