@@ -35,13 +35,13 @@ namespace HW03.Task1
 
             // three examples
             obj1 = intValue;
-            ushort ushortForUnboxing = (ushort)obj1;
+            ushort ushortForUnboxing = (ushort)(int)obj1;
 
-            obj2 = true;
-            byte byteForUnboxing = (byte)obj2;
+            obj2 = false;
+            byte byteForUnboxing = Convert.ToByte((bool)obj2);
 
             obj3 = charValue;
-            intForUnboxing = (int)obj3;
+            intForUnboxing = (char)obj3;
         }
     }
 }
