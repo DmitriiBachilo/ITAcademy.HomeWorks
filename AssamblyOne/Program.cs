@@ -6,7 +6,8 @@ namespace AssemblyOne
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SportBike sportBike = new SportBike();
+            sportBike.MaxSpeedInternal = 200;
         }
     }
 }
