@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Channels;
 
 namespace CheckIn
 {
@@ -10,13 +6,13 @@ namespace CheckIn
     {
         private readonly AirportBoard _board = new AirportBoard();
 
-        public void Run()
+        public void Run(PassengerProfile profile)
         {
-            Console.WriteLine($"Welcome to Minsk National Airport \nLocal time: {DateTime.Now}");
+            Console.WriteLine($" Welcome to Minsk National Airport \n Local time: {DateTime.Now}");
             Console.WriteLine();
-            PrintBoard();
+            PrintBoard();        
 
-            Console.Write("Enter your flight number, please: ");
+            Console.Write(" - Enter your flight number, please: ");
             string passengerFlightNumber = Console.ReadLine();
             Flight passengerFlight = _board.GetFlight(passengerFlightNumber);
 
@@ -27,18 +23,10 @@ namespace CheckIn
                 passengerFlight = _board.GetFlight(passengerFlightNumber);
             }
 
-            Console.WriteLine();
-            Console.WriteLine($"Go to your check-in table number: {passengerFlight.CheckInNumber}");
+            profile.FlightNumber = passengerFlightNumber;
 
-            //Console.WriteLine("Hello. Introduce yourself, please.");
-            //Console.Write("First name: ");
-            //string firstName = Console.ReadLine();
-            //Console.Write("Last name: ");
-            //string lastName = Console.ReadLine();
-            //Console.Write("Passport number: ");
-            //string passportNumber = Console.ReadLine();
-            //Console.Write("Flight number: ");
-            //string flightNumber = Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine($" - Go to your check-in table number: {passengerFlight.CheckInNumber}");
         }
 
         private void PrintBoard()

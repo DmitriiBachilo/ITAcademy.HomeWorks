@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Threading;
 
 namespace CheckIn
 {
@@ -6,7 +6,12 @@ namespace CheckIn
     {
         static void Main(string[] args)
         {
-            new Greeting().Run();
+            PassengerProfile profile = new PassengerProfile();
+            new Greeting().Run(profile);
+            Thread.Sleep(2000);
+            new Registration().Run(profile);
+            Thread.Sleep(2000);
+            new Security().Run();
         }
     }
 }

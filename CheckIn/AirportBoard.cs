@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CheckIn
 {
@@ -40,6 +39,16 @@ namespace CheckIn
             }
 
             return null;
+        }
+
+        public byte GetGateNumber(string number)
+        {
+            Flight flight = GetFlight(number);
+            if (flight != null)
+            {
+                return flight.Gate;
+            }
+            return 0;
         }
     }
 }
