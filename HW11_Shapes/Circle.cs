@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
+using log4net;
 
 namespace Shapes
 {
     class Circle : Shape
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(Circle));
+
         public double CircleRadius { get; }
 
         public Circle(double circleRadius)
         {
+            Log.Info($"Circle created, radius: {circleRadius}");
             CircleRadius = circleRadius;
         }
 

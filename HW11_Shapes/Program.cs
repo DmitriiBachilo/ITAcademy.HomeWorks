@@ -1,13 +1,22 @@
 ﻿using Shapes;
 using System;
-using System.Security.Cryptography.X509Certificates;
+using log4net;
+using log4net.Config;
+using System.IO;
+using System.Reflection;
 
 namespace HW11_Shapes
 {
     class Program
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(Program));
+
         static void Main(string[] args)
         {
+            InitLogger();
+
+            Log.Info("Program start");
+
             Random rand = new Random();
 
             Shape[] shapes = new Shape[]
@@ -20,12 +29,20 @@ namespace HW11_Shapes
             ShapesInfo(shapes);
         }
 
+        private static void InitLogger()
+        {
+            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+        }
+
         public static void ShapesInfo(Shape[] shapes)
         {
             foreach (var shape in shapes)
             {
                 Console.WriteLine($"This is {shape.GetType().Name}. CLR type is {shape.GetType()}. Square is {shape.CalculateArea()}");
+                Log.Info("output to the console of the figure: {item.Name}");
             }
+            Log.Info("Program completed successfully");
         }
     }
 }

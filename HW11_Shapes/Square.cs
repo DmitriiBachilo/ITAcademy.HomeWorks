@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using log4net;
+using System;
 
 namespace Shapes
 {
     class Square : Shape
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(Square));
+
         public double SquareSide { get; }
 
         public Square(double squareSide)
         {
+            Log.Info($"Square created, side: {squareSide}");
             SquareSide = squareSide;
         }
 
